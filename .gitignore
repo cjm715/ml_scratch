@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+__pycache__/
+.pytest_cache
+.coverage
+.DS_Store
+ml_scratch.egg-info
