@@ -4,3 +4,11 @@ __pycache__/
 .coverage
 .DS_Store
 ml_scratch.egg-info
+.aux'
+add 'ml_notes/ml_notes.log'
+add 'ml_notes/ml_notes.pdf'
+add 'ml_notes/ml_notes.synctex.gz'
+*.gz
+*.log
+*.pdf
+*.aux
