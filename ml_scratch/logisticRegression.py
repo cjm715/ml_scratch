@@ -11,17 +11,30 @@ def sigmoid(z):
 
 
 class logisticRegression:
+    ''' Logistic Regression model
+
+    This model is for binary classification. For more details,
+    see: https://youtu.be/het9HFqo1TQ?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&t=2779
+
+    Attributes:
+        w (np.array): array of weights in logistic regression where w[0] is the
+            intercept term.
+
+    '''
+
     def __init__(self):
         self.w = None
 
-    def predict(self, X_test):
-        N, M = X_test.shape
-        Xc = add_bias_col(X_test)
-        y = self._hypothesis(Xc).squeeze()
-        return y
-
     def fit(self, X, y, iterations=None, nu=None, method='gd'):
+        '''
+        Fits model to training features X and labels y.
 
+        Args:
+            X (numpy.array): matrix with n examples (each row) and m features
+                (each column).
+            y (np.array): array of 0 or 1 indicating the class of this example.
+                Array has size (n, 1) where n is the number of examples.
+        '''
         if method == 'gd':
             if iterations is None:
                 iterations = 100
@@ -34,6 +47,23 @@ class logisticRegression:
             if nu is None:
                 nu = 1
             self._fit_newton(X, y, iterations=iterations, nu=nu)
+
+    def predict(self, X_test):
+        '''
+        Predict class for input data matrix X_test
+
+        Args:
+            X_test (numpy.array): matrix with n examples (each row) and m
+                features (each column).
+
+        Returns:
+            (np.array): probability of class 1 with size (n, 1) where n is the
+                number of examples.
+        '''
+        N, M = X_test.shape
+        Xc = add_bias_col(X_test)
+        y = self._hypothesis(Xc).squeeze()
+        return y
 
     def _fit_gd(self, X, y, iterations=100, nu=0.001):
         ''' fit with gradient descent '''
