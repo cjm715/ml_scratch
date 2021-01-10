@@ -12,7 +12,7 @@ def sigmoid(z):
 
 class logisticRegression:
     def __init__(self):
-        pass
+        self.w = None
 
     def predict(self, X_test):
         N, M = X_test.shape
@@ -21,6 +21,7 @@ class logisticRegression:
         return y
 
     def fit(self, X, y, iterations=None, nu=None, method='gd'):
+
         if method == 'gd':
             if iterations is None:
                 iterations = 100
@@ -35,6 +36,8 @@ class logisticRegression:
             self._fit_newton(X, y, iterations=iterations, nu=nu)
 
     def _fit_gd(self, X, y, iterations=100, nu=0.001):
+        ''' fit with gradient descent '''
+
         N, M = X.shape
         Xc = add_bias_col(X)
         y = y[:, None]
@@ -49,6 +52,8 @@ class logisticRegression:
                 print(f'iteration: {i}, cost: {cost}')
 
     def _fit_newton(self, X, y, iterations=100, nu=1):
+        ''' fit with Newton's method '''
+
         N, M = X.shape
         Xc = add_bias_col(X)
         y = y[:, None]

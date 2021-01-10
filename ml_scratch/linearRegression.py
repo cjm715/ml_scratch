@@ -3,19 +3,19 @@ import numpy as np
 
 class linearRegression:
     def __init__(self):
-        pass
-
-    def fit(self, X, y, method='analytic', iterations=100, nu=0.001):
-        if method == 'analytic':
-            self._find_w_analytic(X, y)
-        else:
-            self._find_w_numerical(X, y, iterations=iterations, nu=nu)
+        self.w = None
 
     def predict(self, X_test):
         N, M = X_test.shape
         Xc = self._add_bias_col(X_test)
         y = Xc.dot(self.w).squeeze()
         return y
+
+    def fit(self, X, y, method='analytic', iterations=100, nu=0.001):
+        if method == 'analytic':
+            self._find_w_analytic(X, y)
+        else:
+            self._find_w_numerical(X, y, iterations=iterations, nu=nu)
 
     def _find_w_numerical(self, X, y, iterations=100, nu=0.001):
         N, M = X.shape
