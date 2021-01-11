@@ -25,6 +25,10 @@ class logisticRegression:
                 (each column).
             y (np.array): array of 0 or 1 indicating the class of this example.
                 Array has size (n, 1) where n is the number of examples.
+            method (string): choose solving method with method == 'gd' for
+                gradient descent or method == 'newton' for Newton's method.
+            iterations (int, optional): number of iterations for solver
+            nu (float, optional): step size for solver.
         '''
         if method == 'gd':
             if iterations is None:
