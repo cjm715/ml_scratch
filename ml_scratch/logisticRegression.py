@@ -1,15 +1,6 @@
 import numpy as np
 
 
-def add_bias_col(X):
-    N, _ = X.shape
-    return np.concatenate([np.ones((N, 1)), X], axis=1)
-
-
-def sigmoid(z):
-    return 1/(1+np.exp(-z))
-
-
 class logisticRegression:
     ''' Logistic Regression model
 
@@ -103,3 +94,12 @@ class logisticRegression:
 
     def _hypothesis(self, Xc):
         return sigmoid(Xc.dot(self.w))
+
+
+def add_bias_col(X):
+    N, _ = X.shape
+    return np.concatenate([np.ones((N, 1)), X], axis=1)
+
+
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
