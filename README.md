@@ -1,6 +1,6 @@
 # ML-Scratch
 
-This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from view the numpy implementations.
+This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from viewing these numpy implementations.
 
 ## Linear Regression
 Two solvers are implemented to fit data: (1) normal equations and (2) gradient descent.
