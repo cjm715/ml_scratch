@@ -10,5 +10,4 @@ add 'ml_notes/ml_notes.pdf'
 add 'ml_notes/ml_notes.synctex.gz'
 *.gz
 *.log
-*.pdf
 *.aux
