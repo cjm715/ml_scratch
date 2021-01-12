@@ -2,9 +2,16 @@
 
 This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from viewing these numpy implementations.
 
+# Installing package `ml_scratch`
+
+1. Clone this repo locally.
+2. In Terminal, run `pip install -e .` within root directory of repository.
+
+# The algorithms
+
 Each algorithm listed below will have all or subset of the following links:
 1. **Theory** : This is a pdf that explains the theory behind the algorithm.
-1. **Code** : This link directs you to the algorithm code within the library of the numpy implementation.
+1. **Code** : This link directs you to the numpy implementation code of the algorithm within the `ml_scratch` library.
 2. **Notebook** : This link directs you to a jupyter notebook demonstrates using the algorithm on data.
 
 
