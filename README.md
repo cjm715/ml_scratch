@@ -10,7 +10,7 @@ Each algorithm listed below will have all or subset of the following links:
 
 ## Linear Regression
 Two solvers are implemented to fit data: (1) normal equations and (2) gradient descent.
-- [Theory](https://github.com/cjm715/ml_scratch/blob/master/ml_notes/Linear_Regression.pdf)
+- [Theory](https://github.com/cjm715/ml_scratch/blob/master/theory/Linear_Regression.pdf)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/linearRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LinearRegression.ipynb)
 
