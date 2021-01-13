@@ -33,5 +33,5 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/GDA.ipynb)
 
 
-## Naive Bayes Classifier
+### Naive Bayes Classifier
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Naive_Bayes.ipynb)
