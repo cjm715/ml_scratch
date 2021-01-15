@@ -1,7 +1,7 @@
 # ML-Scratch
 
 This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from viewing these numpy implementations.
-
+ 
 # Installing package `ml_scratch`
 
 1. Clone this repo locally.
@@ -10,14 +10,12 @@ This is a python library with numpy implementations of common machine learning a
 # The algorithms
 
 Each algorithm listed below will have all or subset of the following links:
-1. **Theory** : This is a pdf that explains the theory behind the algorithm.
 1. **Code** : This link directs you to the numpy implementation code of the algorithm within the `ml_scratch` library.
 2. **Notebook** : This link directs you to a jupyter notebook demonstrates using the algorithm on data.
 
 
 ### Linear Regression
 Two solvers are implemented to fit data: (1) normal equations and (2) gradient descent.
-- [Theory](https://github.com/cjm715/ml_scratch/blob/master/theory/Linear_Regression.pdf)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/linearRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LinearRegression.ipynb)
 
