@@ -30,8 +30,11 @@ class GDA:
 
         self.params['mu0'] = np.mean(X[y == 0, :], axis=0)
         self.params['mu1'] = np.mean(X[y == 1, :], axis=0)
-        self.params['sigma0'] = np.cov(X[y == 0, :].T)
-        self.params['sigma1'] = np.cov(X[y == 1, :].T)
+        mu = np.where(y[None, :] == 1,
+            self.params['mu1'][:, None],
+            self.params['mu0'][:, None])
+        sigma = np.cov(X.T - mu)
+        self.params['sigma'] = sigma
         self.params['phi'] = np.sum(y == 1)/len(y)
 
     def predict(self, X_test):
@@ -50,7 +53,7 @@ class GDA:
         posterior = np.zeros(X_test.shape)
         for target_class in range(2):
             mu = self.params[f'mu{target_class}']
-            sigma = self.params[f'sigma{target_class}']
+            sigma = self.params['sigma']
             phi = self.params['phi']
             likelihood = gaussian_pdf(X_test, mu, sigma)
             prior = phi**(target_class)*(1-phi)**(1-target_class)
