@@ -65,7 +65,8 @@ def gaussian_pdf(X, mu, sigma):
     collection of points.
     '''
 
+    det = np.linalg.det(sigma)
     sigma_inv = np.linalg.inv(sigma)
-    exponent = - np.sum(((X - mu).T*sigma_inv.dot((X - mu).T)), axis=0)
-    prob_density = 1./(2. * np.pi) * np.exp(exponent)
+    exponent = - 0.5*np.sum(((X - mu).T*sigma_inv.dot((X - mu).T)), axis=0)
+    prob_density = 1./(2. * np.pi*np.sqrt(det)) * np.exp(exponent)
     return prob_density
