@@ -1,7 +1,7 @@
 # ML-Scratch
 
 This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from viewing these numpy implementations.
- 
+
 # Installing package `ml_scratch`
 
 1. Clone this repo locally.
@@ -33,3 +33,6 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 
 ### Naive Bayes Classifier
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Naive_Bayes.ipynb)
+
+### SVM
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/SVM.ipynb)
