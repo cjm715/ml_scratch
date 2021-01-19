@@ -35,5 +35,5 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Naive_Bayes.ipynb)
 
 ### Support Vector Machine (SVM)
-This implementation is a variant of Sequential Minimal Optimization (SMO).
+This implementation is a simplified version of the full Sequential Minimal Optimization (SMO) algorithm.
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/SVM.ipynb)
