@@ -24,7 +24,7 @@ class LinearRegression:
         Args:
             X (numpy.array): matrix with n examples (each row) and m features
                 (each column).
-            y (np.array): array of 0 or 1 indicating the class of this example.
+            y (np.array): array of output variables.
                 Array has size (n, 1) where n is the number of examples.
             method (string, optional): can be either 'analytic' (uses normal
                 equation to solve) or 'gd' (uses gradient descent to solve)

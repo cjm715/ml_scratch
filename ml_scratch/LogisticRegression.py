@@ -56,7 +56,7 @@ class LogisticRegression:
                 number of examples.
         '''
         N, M = X_test.shape
-        Xc = add_bias_col(X_test)
+        Xc = _add_bias_col(X_test)
         y = self._hypothesis(Xc).squeeze()
         return y
 
@@ -64,7 +64,7 @@ class LogisticRegression:
         ''' fit with gradient descent '''
 
         N, M = X.shape
-        Xc = add_bias_col(X)
+        Xc = _add_bias_col(X)
         y = y[:, None]
         self.w = np.zeros((M + 1, 1))
         for i in range(iterations):
@@ -80,7 +80,7 @@ class LogisticRegression:
         ''' fit with Newton's method '''
 
         N, M = X.shape
-        Xc = add_bias_col(X)
+        Xc = _add_bias_col(X)
         y = y[:, None]
         # self.w = np.random.uniform(size=(M + 1, 1))
         self.w = np.zeros((M + 1, 1))
@@ -97,13 +97,13 @@ class LogisticRegression:
             print(f'iteration: {i}, cost: {cost}')
 
     def _hypothesis(self, Xc):
-        return sigmoid(Xc.dot(self.w))
+        return _sigmoid(Xc.dot(self.w))
 
 
-def add_bias_col(X):
+def _add_bias_col(X):
     N, _ = X.shape
     return np.concatenate([np.ones((N, 1)), X], axis=1)
 
 
-def sigmoid(z):
+def _sigmoid(z):
     return 1/(1+np.exp(-z))
