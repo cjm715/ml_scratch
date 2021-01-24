@@ -45,5 +45,5 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 
 ### Decision Tree
 ![Alt text](./images/decision_tree.svg)
-- Code (Coming soon. Numpy implementation is in notebook link below)
+- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/DecisionTree.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
