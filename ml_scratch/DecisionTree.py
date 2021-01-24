@@ -87,11 +87,6 @@ def calc_fraction_positive(y):
         return 0
     return sum(y == 1)/len(y)
 
-def calc_gini(y):
-    p = calc_fraction_positive(y)
-    G = 2*p*(1-p)
-    return G
-
 def calc_entropy(y):
     p = calc_fraction_positive(y)
     if p == 0 or p == 1:
