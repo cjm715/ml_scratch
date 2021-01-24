@@ -16,10 +16,24 @@ class DecisionTree:
         self.root = self._build_tree(X, y, node, level)
 
     def predict(self, X):
-        pass
+
+        # add additional column with original row id since data will
+        # be split up in recursion algorithm within calc_prob_from_tree.
+        # row id will travel along with data during traversal and then sorted
+        # at end by row id.
+        idx_col =  np.arange(X.shape[0], dtype = np.float).reshape(X.shape[0],1)
+        X = np.append(X, idx_col, 1)
+
+        p = calc_prob_from_tree(X, self.root)
+
+        # sort by row id and remove row id column in output
+        p = p[np.argsort(p[:, -1])]
+        p = p[:, 0]
+
+        return p
 
     def _build_tree(self, X, y, node, level):
-        p = calc_p(y)
+        p = calc_fraction_positive(y)
         node['id'] = next(self.id_generator)
         node['num_samples'] = len(y)
         node['frac_positive'] = p
@@ -39,36 +53,52 @@ class DecisionTree:
 
         return node
 
-def calc_p(y):
-    if len(y) == 0:
-        return 0
-    return sum(y == 1)/len(y)
-
-def calc_gini(y):
-    p = calc_p(y)
-    G = 2*p*(1-p)
-    return G
-
-def calc_entropy(y):
-    p = calc_p(y)
-    if p == 0 or p == 1:
-        return 0.
-    q = 1-p
-    entropy = - p*np.log(p) - q*np.log(q)
-    return entropy
-
-def split_data(feature_idx, threshold, X, y):
+def split_features(feature_idx, threshold, X):
     # right for data with feature greater than threshold
     mask_right = X[:, feature_idx] > threshold
     mask_left = np.logical_not(mask_right)
 
     X_left = X[mask_left, :]
-    y_left = y[mask_left]
-
     X_right = X[mask_right, :]
-    y_right = y[mask_right]
 
-    return X_left, y_left, X_right, y_right
+    return X_left, X_right
+
+def calc_prob_from_tree(X, node):
+    if 'split' in node:
+        # Reached a split in decision tree. ask children for probabilities
+        # and concatenate
+        split = node['split']
+        Xl, Xr = split_features(split.feature_idx, split.threshold, X)
+        pl = calc_prob_from_tree(Xl, node['left'])
+        pr = calc_prob_from_tree(Xr, node['right'])
+        p = np.append(pl, pr, 0)
+        return p
+    else:
+        # leaf node; predict fraction positive from training set as probability
+        # of positive class.
+        p = np.ones((X.shape[0],1), dtype= np.float)*node['frac_positive']
+        idx_col = X[:, -1].reshape(X.shape[0],1)
+        p = np.append(p, idx_col, 1)
+
+        return p
+
+def calc_fraction_positive(y):
+    if len(y) == 0:
+        return 0
+    return sum(y == 1)/len(y)
+
+def calc_gini(y):
+    p = calc_fraction_positive(y)
+    G = 2*p*(1-p)
+    return G
+
+def calc_entropy(y):
+    p = calc_fraction_positive(y)
+    if p == 0 or p == 1:
+        return 0.
+    q = 1-p
+    entropy = - p*np.log(p) - q*np.log(q)
+    return entropy
 
 def calc_split_entropy(feature_idx, threshold, X, y):
 
@@ -83,6 +113,22 @@ def calc_split_entropy(feature_idx, threshold, X, y):
     H = p_left*H_left + p_right*H_right
 
     return H
+
+
+
+def split_data(feature_idx, threshold, X, y):
+    # right for data with feature greater than threshold
+    mask_right = X[:, feature_idx] > threshold
+    mask_left = np.logical_not(mask_right)
+
+    X_left = X[mask_left, :]
+    y_left = y[mask_left]
+
+    X_right = X[mask_right, :]
+    y_right = y[mask_right]
+
+    return X_left, y_left, X_right, y_right
+
 
 def find_optimal_split(X, y):
     cand_split_list = []
