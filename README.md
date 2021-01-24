@@ -16,13 +16,13 @@ Each algorithm listed below will have all or subset of the following links:
 
 ### Linear Regression
 Two solvers are implemented to fit data: (1) normal equations and (2) gradient descent.
-- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/linearRegression.py)
+- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/LinearRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LinearRegression.ipynb)
 
 
 ### Logistic Regression
 Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's method.
-- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/logisticRegression.py)
+- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/LogisticRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LogisticRegression.ipynb)
 
 ### Gaussian Discriminant Analysis
@@ -33,7 +33,7 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 
 ### Naive Bayes Classifier
 - Code (Coming soon. Numpy implementation is in notebook link below)
-- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Naive_Bayes.ipynb)
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/NaiveBayes.ipynb)
 
 ### Support Vector Machine (SVM)
 ![Alt text](./images/SVM.svg)
@@ -46,4 +46,4 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 ### Decision Tree
 ![Alt text](./images/decision_tree.svg)
 - Code (Coming soon. Numpy implementation is in notebook link below)
-- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Decision_Tree.ipynb)
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
