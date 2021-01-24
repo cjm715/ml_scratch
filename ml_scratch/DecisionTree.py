@@ -17,9 +17,11 @@ class DecisionTree:
             - 'split' (Split [namedtuple], optional):  split information such as
                 feature, threshold, and split entropy
             - 'left' (dict, optional): left node representing data less than
-                threshold in split.
+                threshold in split. This has the same dictionary structure as
+                defined here for root node.
             - 'right' (dict, optional): right node representing data right than
-                threshold in split.
+                threshold in split. This has the same dictionary structure as
+                defined here for root node.
 
     Args:
         max_depth (int): maximum depth of tree to fit to data. This is a
