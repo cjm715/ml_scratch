@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class linearRegression:
+class LinearRegression:
     ''' Linear Regression Model
 
     This is a classic regression model which assumes the output variable is

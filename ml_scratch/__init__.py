@@ -1,9 +1,11 @@
-from .linearRegression import linearRegression
-from .logisticRegression import logisticRegression
+from .LinearRegression import LinearRegression
+from .LogisticRegression import LogisticRegression
 from .GDA import GDA, gaussian_pdf
+from .DecisionTree import DecisionTree
 
 __all__ = [
-    'linearRegression',
-    'logisticRegression',
+    'LinearRegression',
+    'LogisticRegression',
     'GDA',
-    'gaussian_pdf']
+    'gaussian_pdf',
+    'DecisionTree']

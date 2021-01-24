@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class logisticRegression:
+class LogisticRegression:
     ''' Logistic Regression model
 
     This model is for binary classification. For more details,
