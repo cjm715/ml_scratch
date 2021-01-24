@@ -41,3 +41,9 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 This implementation is a simplified version of the full Sequential Minimal Optimization (SMO) algorithm.
 - Code (Coming soon)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/SVM.ipynb)
+
+
+### Decision Tree
+![Alt text](./images/decision_tree.svg)
+- Code (Coming soon)
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Decision_Tree.ipynb)
