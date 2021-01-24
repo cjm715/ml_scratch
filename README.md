@@ -32,18 +32,18 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 
 
 ### Naive Bayes Classifier
-- Code (Coming soon)
+- Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Naive_Bayes.ipynb)
 
 ### Support Vector Machine (SVM)
 ![Alt text](./images/SVM.svg)
 
 This implementation is a simplified version of the full Sequential Minimal Optimization (SMO) algorithm.
-- Code (Coming soon)
+- Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/SVM.ipynb)
 
 
 ### Decision Tree
 ![Alt text](./images/decision_tree.svg)
-- Code (Coming soon)
+- Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/Decision_Tree.ipynb)
