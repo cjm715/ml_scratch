@@ -14,14 +14,15 @@ class DecisionTree:
             - 'id' (int): node id
             - 'num_samples' (int): number of samples
             - 'frac_positive' (float): fraction of positive labels in train set.
-            - 'split' (Split [namedtuple], optional):  split information such as
+            - 'split' (Split [namedtuple], exists for non-leaf nodes):
+                split information such as
                 feature, threshold, and split entropy
-            - 'left' (dict, optional): left node representing data less than
-                threshold in split. This has the same dictionary structure as
-                defined here for root node.
-            - 'right' (dict, optional): right node representing data right than
-                threshold in split. This has the same dictionary structure as
-                defined here for root node.
+            - 'left' (dict, exists for non-leaf nodes): left node representing
+                data less than or equal to threshold in split. This has the same
+                dictionary structure as defined here for root node.
+            - 'right' (dict,  exists for non-leaf nodes): right node representing
+                data greater than threshold in split. This has the same dictionary
+                structure as defined here for root node.
 
     Args:
         max_depth (int): maximum depth of tree to fit to data. This is a
