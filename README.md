@@ -1,6 +1,9 @@
 # ML-Scratch
 
-This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I hope that others who are learning machine learning will benefit from viewing these numpy implementations.
+This is a python library with numpy implementations of common machine learning algorithms. This was built for educational purposes as a means to learn the details of machine learning algorithms for myself. I also hope that others who are learning machine learning will benefit from viewing these numpy implementations.
+
+This repository takes inspiration from a similar repository linked below that I recommend checking out
+for alternative implementations: https://github.com/eriklindernoren/ML-From-Scratch
 
 This repository takes inspiration from a similar repository linked below that I recommend checking out
 for alternative implementations: https://github.com/eriklindernoren/ML-From-Scratch
