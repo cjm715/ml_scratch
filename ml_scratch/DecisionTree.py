@@ -1,7 +1,7 @@
 import numpy as np
 from collections import namedtuple
 
-Split = namedtuple('Split','feature_idx threshold entropy')
+Split = namedtuple('Split','feature_idx threshold split_entropy')
 
 
 class DecisionTree:
@@ -14,6 +14,7 @@ class DecisionTree:
             - 'id' (int): node id
             - 'num_samples' (int): number of samples
             - 'frac_positive' (float): fraction of positive labels in train set.
+            - 'entropy' (float): entropy of node,
             - 'split' (Split [namedtuple], exists for non-leaf nodes):
                 split information such as
                 feature, threshold, and split entropy
@@ -30,9 +31,10 @@ class DecisionTree:
 
     '''
 
-    def __init__(self, max_depth=5):
+    def __init__(self, max_depth=5, max_num_nodes = 15):
         self.root = {}
         self.max_depth = max_depth
+        self.max_num_nodes = max_num_nodes
         self._id_generator = _numberGenerator()
 
     def fit(self, X, y):
@@ -79,11 +81,18 @@ class DecisionTree:
 
     def _build_tree(self, X, y, node, level):
         p = _calc_fraction_positive(y)
+        entropy = _calc_entropy(y)
         node['id'] = next(self._id_generator)
         node['num_samples'] = len(y)
         node['frac_positive'] = p
-
+        node['entropy'] = entropy
         if p == 0 or p == 1:
+            return node
+
+        # add 1 to count up to parent and add 2 to consider children if split further
+        num_nodes_with_potential_split = node['id'] + 1 + 2
+
+        if  num_nodes_with_potential_split >= self.max_num_nodes:
             return node
 
         level = level + 1
@@ -177,12 +186,12 @@ def _find_optimal_split(X, y):
         # midpoints of all x_values
         threshold_list = (x_values[:-1] + x_values[1:])/2.
         for threshold in threshold_list:
-            entropy = _calc_split_entropy(feature_idx, threshold, X, y)
+            split_entropy = _calc_split_entropy(feature_idx, threshold, X, y)
             cand_split = Split(feature_idx = feature_idx,
                                threshold = threshold,
-                               entropy = entropy)
+                               split_entropy = split_entropy)
             cand_split_list.append(cand_split)
-    optimal_split = min(cand_split_list, key=lambda split: split.entropy)
+    optimal_split = min(cand_split_list, key=lambda split: split.split_entropy)
     return optimal_split
 
 def _numberGenerator():
