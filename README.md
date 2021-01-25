@@ -5,9 +5,6 @@ This is a python library with numpy implementations of common machine learning a
 This repository takes inspiration from a similar repository linked below that I recommend checking out
 for alternative implementations: https://github.com/eriklindernoren/ML-From-Scratch
 
-This repository takes inspiration from a similar repository linked below that I recommend checking out
-for alternative implementations: https://github.com/eriklindernoren/ML-From-Scratch
-
 # Installing package `ml_scratch`
 
 1. Clone this repo locally.
