@@ -55,8 +55,10 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
 
 
-### Random Forest 
+### Random Forest
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/RandomForest.ipynb)
 
-
+### K-means clustering
+- Code (Coming soon. Numpy implementation is in notebook link below)
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/kMeans.ipynb)
