@@ -28,6 +28,8 @@ class DecisionTree:
     Args:
         max_depth (int): maximum depth of tree to fit to data. This is a
             regularization parameter.
+        max_num_nodes (int): maximum number of nodes in tree. This is a
+            regularization parameter.
 
     '''
 
