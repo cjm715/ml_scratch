@@ -9,7 +9,7 @@ class DecisionTree:
     Binary decision tree classifier.
 
     Attributes:
-        root (dict): the root node of tree represented as a
+        root (dict): the root node of tree (and each nodes in tree) is represented as a
             dictionary with keys:
             - 'id' (int): node id
             - 'num_samples' (int): number of samples
