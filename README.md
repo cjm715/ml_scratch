@@ -51,5 +51,12 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 
 ### Decision Tree
 ![Alt text](./images/decision_tree.svg)
-- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/DecisionTree.py)
+- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
+
+
+### Random Forest 
+- [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
+- [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/RandomForest.ipynb)
+
+

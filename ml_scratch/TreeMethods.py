@@ -4,6 +4,59 @@ from collections import namedtuple
 Split = namedtuple('Split','feature_idx threshold split_entropy')
 
 
+class RandomForest:
+    '''
+    Random Forest classifier.
+
+    '''
+
+    def __init__(self, max_depth=5, max_num_nodes = 15, num_trees = 10):
+        self.max_depth = max_depth
+        self.max_num_nodes = max_num_nodes
+        self.num_trees = num_trees
+        self.trees = [
+                            DecisionTree(max_depth=self.max_depth,
+                                         max_num_nodes = self.max_num_nodes,
+                                         type = 'rf')
+                            for _ in range(self.num_trees)
+                     ]
+
+    def fit(self, X, y):
+        '''
+        Fits model to training features X and labels y.
+
+        Args:
+            X (numpy.array): matrix with n examples (each row) and m features
+                (each column).
+            y (numpy.array): array of 0 (-1 works as well for negative class) or 1
+                indicating the class of this example. Array has size (n, 1)
+                where n is the number of examples.
+        '''
+        for tree in self.trees:
+            Xs, ys = _bootstrap_sample_dataset(X, y)
+            tree.fit(Xs, ys)
+
+    def predict(self, X):
+        '''
+        Predict probability of class for input data matrix X
+
+        Args:
+            X (numpy.array): matrix with n examples (each row) and m
+                features (each column).
+
+        Returns:
+            (np.array): probability of class 1 with size (n, 1) where n is the
+                number of examples.
+        '''
+        P = np.zeros((X.shape[0], self.num_trees))
+
+        for i, tree in enumerate(self.trees):
+            p_tree = tree.predict(X)
+            P[:, i] = p_tree
+
+        return np.mean(P, axis = 1)
+
+
 class DecisionTree:
     '''
     Binary decision tree classifier.
@@ -33,10 +86,11 @@ class DecisionTree:
 
     '''
 
-    def __init__(self, max_depth=5, max_num_nodes = 15):
+    def __init__(self, max_depth=5, max_num_nodes = 15, type = 'normal'):
         self.root = {}
         self.max_depth = max_depth
         self.max_num_nodes = max_num_nodes
+        self.type = type
         self._id_generator = _numberGenerator()
 
     def fit(self, X, y):
@@ -52,11 +106,11 @@ class DecisionTree:
         '''
         level = 0
         node = {}
-        self.root = self._build_tree(X, y, node, level)
+        self.root = self._build_tree(X, y, node, level, self.type)
 
     def predict(self, X):
         '''
-        Predict class for input data matrix X_test
+        Predict probability of class for input data matrix X
 
         Args:
             X (numpy.array): matrix with n examples (each row) and m
@@ -81,7 +135,7 @@ class DecisionTree:
 
         return p
 
-    def _build_tree(self, X, y, node, level):
+    def _build_tree(self, X, y, node, level, type):
         p = _calc_fraction_positive(y)
         entropy = _calc_entropy(y)
         node['id'] = next(self._id_generator)
@@ -91,7 +145,8 @@ class DecisionTree:
         if p == 0 or p == 1:
             return node
 
-        # add 1 to count up to parent and add 2 to consider children if split further
+        # add 1 to due to zero indexing
+        # and add 2 to consider children if split further
         num_nodes_with_potential_split = node['id'] + 1 + 2
 
         if  num_nodes_with_potential_split >= self.max_num_nodes:
@@ -101,13 +156,18 @@ class DecisionTree:
         if level > self.max_depth:
             return node
 
-        split = _find_optimal_split(X, y)
+        split = _find_optimal_split(X, y, type)
         Xl, yl, Xr, yr = _split_data(split.feature_idx, split.threshold, X, y)
         node['split'] = split
-        node['left'] = self._build_tree(Xl, yl, {}, level)
-        node['right'] = self._build_tree(Xr, yr, {}, level)
+        node['left'] = self._build_tree(Xl, yl, {}, level, type)
+        node['right'] = self._build_tree(Xr, yr, {}, level, type)
 
         return node
+
+def _bootstrap_sample_dataset(X, y):
+    rand_idx = np.random.randint(X.shape[0], size=X.shape[0])
+    return X[rand_idx, :], y[rand_idx]
+
 
 def _split_features(feature_idx, threshold, X):
     # right for data with feature greater than threshold
@@ -181,11 +241,18 @@ def _split_data(feature_idx, threshold, X, y):
     return X_left, y_left, X_right, y_right
 
 
-def _find_optimal_split(X, y):
+def _find_optimal_split(X, y, mode = 'normal'):
     # TODO: This function could be optimized by using information from split with
     # previous threshold.
     cand_split_list = []
-    for feature_idx in range(X.shape[1]):
+
+    if mode == 'normal':
+        num_features = X.shape[1]
+        feature_idx_list = list(range(num_features))
+    else: # mode = 'rf' for random forest type
+        feature_idx_list = _calc_rf_feature_list(X)
+
+    for feature_idx in feature_idx_list:
         x_values = np.sort(X[:, feature_idx])
         # midpoints of all x_values
         threshold_list = (x_values[:-1] + x_values[1:])/2.
@@ -197,6 +264,12 @@ def _find_optimal_split(X, y):
             cand_split_list.append(cand_split)
     optimal_split = min(cand_split_list, key=lambda split: split.split_entropy)
     return optimal_split
+
+def _calc_rf_feature_list(X):
+    k = int(np.ceil(np.sqrt(X.shape[1])))
+    feature_idx_list = list(range(X.shape[1]))
+    feature_idx_list = list(np.random.choice(feature_idx_list, k, replace=False))
+    return feature_idx_list
 
 def _numberGenerator():
     number = 0
