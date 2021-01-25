@@ -182,6 +182,8 @@ def _split_data(feature_idx, threshold, X, y):
 
 
 def _find_optimal_split(X, y):
+    # TODO: This function could be optimized by using information from split with
+    # previous threshold.
     cand_split_list = []
     for feature_idx in range(X.shape[1]):
         x_values = np.sort(X[:, feature_idx])
