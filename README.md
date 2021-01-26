@@ -29,7 +29,7 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LogisticRegression.ipynb)
 
 ### Gaussian Discriminant Analysis
-![Alt text](./images/GDA.svg)
+![Alt text](./notebooks/images/GDA.svg)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/GDA.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/GDA.ipynb)
 
@@ -39,7 +39,7 @@ Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's m
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/NaiveBayes.ipynb)
 
 ### Support Vector Machine (SVM)
-![Alt text](./images/SVM.svg)
+![Alt text](./notebooks/images/SVM.svg)
 
 This implementation is a simplified version of the full Sequential Minimal Optimization (SMO) algorithm.
 - Code (Coming soon. Numpy implementation is in notebook link below)
@@ -47,7 +47,7 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 
 
 ### Decision Tree
-![Alt text](./images/decision_tree.svg)
+![Alt text](./notebooks/images/decision_tree.svg)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
 
@@ -56,6 +56,6 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/RandomForest.ipynb)
 
 ### K-means clustering
-![Alt text](./images/kmeans.png)
+![Alt text](./notebooks/images/kmeans.png)
 - Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/kMeans.ipynb)
