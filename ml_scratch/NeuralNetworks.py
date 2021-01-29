@@ -19,9 +19,6 @@ class NeuralNetwork:
         pass
 
     def predict(self, X):
-        pass
-
-    def _forward(self, X):
         for i in range(self.num_layers):
             if i == 0:
                 self.z[i] = self.W[i].dot(X.T) + self.b[i]
