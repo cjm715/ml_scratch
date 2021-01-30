@@ -12,7 +12,7 @@ for alternative implementations: https://github.com/eriklindernoren/ML-From-Scra
 
 # The algorithms
 List of algorithms implemented:
-- [Linear Regression](##linear-regression)
+- [Linear Regression](#linear-regression)
 - [Logistic Regression]()
 - [Gaussian Discriminant Analysis]()
 - [Naive Bayes Classifier]()
