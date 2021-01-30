@@ -61,6 +61,6 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/kMeans.ipynb)
 
 
-## Neural network
+## Neural Network
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/NeuralNetworks.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/NeuralNetworks.ipynb)
