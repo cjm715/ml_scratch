@@ -16,7 +16,7 @@ List of algorithms implemented:
 - [Logistic Regression](#logistic-regression)
 - [Gaussian Discriminant Analysis](#gaussian-discriminant-analysis)
 - [Naive Bayes Classifier](#naive-bayes-classifier)
-- [Support Vector Machine](#support-vector-machine)
+- [Support Vector Machine](#support-vector-machine-svm)
 - [CART Decision Tree](#decision-tree)
 - [Random Forest](#random-forest)
 - [K-means clustering](#k-means-clustering)
