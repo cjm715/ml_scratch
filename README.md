@@ -17,28 +17,28 @@ Each algorithm listed below will have all or subset of the following links:
 2. **Notebook** : This link directs you to a jupyter notebook demonstrating the algorithm with a dataset. It also includes the code for generating the matplotlib visualizations shown in this readme.
 
 
-### Linear Regression
+## Linear Regression
 Two solvers are implemented to fit data: (1) normal equations and (2) gradient descent.
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/LinearRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LinearRegression.ipynb)
 
 
-### Logistic Regression
+## Logistic Regression
 Two solvers are implemented to fit data: (1) gradient descent and (2) Newton's method.
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/LogisticRegression.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/LogisticRegression.ipynb)
 
-### Gaussian Discriminant Analysis
+## Gaussian Discriminant Analysis
 ![Alt text](./notebooks/images/GDA.svg)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/GDA.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/GDA.ipynb)
 
 
-### Naive Bayes Classifier
+## Naive Bayes Classifier
 - Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/NaiveBayes.ipynb)
 
-### Support Vector Machine (SVM)
+## Support Vector Machine (SVM)
 ![Alt text](./notebooks/images/SVM.svg)
 
 This implementation is a simplified version of the full Sequential Minimal Optimization (SMO) algorithm.
@@ -46,21 +46,21 @@ This implementation is a simplified version of the full Sequential Minimal Optim
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/SVM.ipynb)
 
 
-### Decision Tree
+## Decision Tree
 ![Alt text](./notebooks/images/decision_tree.svg)
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/DecisionTree.ipynb)
 
-### Random Forest
+## Random Forest
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/TreeMethods.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/RandomForest.ipynb)
 
-### K-means clustering
+## K-means clustering
 ![Alt text](./notebooks/images/kmeans.png)
 - Code (Coming soon. Numpy implementation is in notebook link below)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/kMeans.ipynb)
 
 
-### Neural network
+## Neural network
 - [Code](https://github.com/cjm715/ml_scratch/blob/master/ml_scratch/NeuralNetworks.py)
 - [Notebook](https://github.com/cjm715/ml_scratch/blob/master/notebooks/NeuralNetworks.ipynb)
