@@ -114,16 +114,16 @@ def softmax(z):
     a = a / np.sum(a, axis = 0)
     return a
 
-from sklearn.datasets import load_digits
-import matplotlib.pyplot as plt
-
-if __name__ == "__main__":
-
-    nn = NeuralNetwork()
-    X_orig, y_orig = load_digits(return_X_y = True)
-    X = X_orig/16.
-
-    y = np.zeros((len(y_orig), 10))
-    for i in range(len(y_orig)):
-        y[i, y_orig[i]] = 1
-    yp = nn.fit(X, y)
+# from sklearn.datasets import load_digits
+# import matplotlib.pyplot as plt
+#
+# if __name__ == "__main__":
+#
+#     nn = NeuralNetwork()
+#     X_orig, y_orig = load_digits(return_X_y = True)
+#     X = X_orig/16.
+#
+#     y = np.zeros((len(y_orig), 10))
+#     for i in range(len(y_orig)):
+#         y[i, y_orig[i]] = 1
+#     yp = nn.fit(X, y)
