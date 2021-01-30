@@ -12,15 +12,15 @@ for alternative implementations: https://github.com/eriklindernoren/ML-From-Scra
 
 # The algorithms
 List of algorithms implemented:
-    - linear regression
-    - logistic regression
-    - gaussian discriminant analysis
-    - naive bayes classifier
-    - support vector machine
-    - CART decision tree
-    - random forest
-    - K-means clustering
-    - neural network.
+- linear regression
+- logistic regression
+- gaussian discriminant analysis
+- naive bayes classifier
+- support vector machine
+- CART decision tree
+- random forest
+- K-means clustering
+- neural network.
 
 Each algorithm listed below will have all or subset of the following links:
 1. **Code** : This link directs you to the numpy implementation code of the algorithm within the `ml_scratch` library.
