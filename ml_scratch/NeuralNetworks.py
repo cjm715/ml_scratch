@@ -22,7 +22,7 @@ class NeuralNetwork:
             self.b.append(np.random.randn(num_nodes[i], 1)*0.01)
 
 
-    def fit(self, X, y, num_iterations = 10000):
+    def fit(self, X, y, X_val=None, y_val=None, num_iterations = 10000):
         for itr in range(num_iterations):
             X_batch, y_batch = sample_batch(X, y, self.batch_size)
 
@@ -34,11 +34,22 @@ class NeuralNetwork:
 
             if itr % 100 == 0:
                 y_hat = self.predict(X)
-                print(itr,
-                     "   Loss: ",
-                     self._loss(y, y_hat),
-                     "   Train Accuracy: ",
-                     self._accuracy(y, y_hat))
+                if y_val is not None:
+                    y_val_hat = self.predict(X_val)
+                    print(itr,
+                        "   Loss: ",
+                        self._loss(y, y_hat),
+                        "   Train Accuracy: ",
+                        self._accuracy(y, y_hat),
+                        "   Val Accuracy",
+                        self._accuracy(y_val, y_val_hat))
+
+                else:
+                    print(itr,
+                        "   Loss: ",
+                        self._loss(y, y_hat),
+                        "   Train Accuracy: ",
+                        self._accuracy(y, y_hat))
 
     def predict(self, X):
         a, _ = self._forward(X)
@@ -49,6 +60,7 @@ class NeuralNetwork:
 
     def _accuracy(self, y, y_hat):
         is_correct = (np.argmax(y, axis = 1) == np.argmax(y_hat, axis = 1))
+        #print(is_correct.shape)
         return sum(is_correct)/ len(is_correct)
 
     def _forward(self, X):
